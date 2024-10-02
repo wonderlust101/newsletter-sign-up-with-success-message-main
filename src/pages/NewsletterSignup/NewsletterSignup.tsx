@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
 import NewsletterSignupForm from "./NewsletterSignupForm";
 import NewsletterSignupSuccess from "./NewsletterSignupSuccess/NewsletterSignupSuccess";
@@ -17,21 +17,31 @@ const features: string[] = [
 
 export default function NewsletterSignup() {
     const [submitted, setSubmitted] = useState<boolean>(false);
-    const [email, setEmail] = useState<string>('');
+    const [email, setEmail] = useState<string>("");
+    const [inputStatus, setInputStatus] = useState("");
+
+    const isEmail = (email: string) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
 
     const handleFormSubmit = (event: React.FormEvent) => {
         event.preventDefault();
-        setSubmitted(true);
+
+        if (!isEmail(email)) {
+            setInputStatus("error");
+        }
+        else {
+            setInputStatus("");
+            setSubmitted(true);
+        }
     };
-    
+
     const handleDismiss = () => {
-        setSubmitted(false)
-        setEmail('')
-    }
-    
+        setSubmitted(false);
+        setEmail("");
+    };
+
     const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value);
-    }
+    };
 
     return (
         <div className="newsletter-signup grid-bleed">
@@ -43,10 +53,11 @@ export default function NewsletterSignup() {
                     />
                 ) : (
                     <>
-                        <NewsletterSignupForm 
+                        <NewsletterSignupForm
                             handleEmailChange={handleEmailChange}
                             email={email}
                             onSubmit={handleFormSubmit}
+                            status={inputStatus}
                         >
                             <h1>Stay updated!</h1>
 
@@ -55,7 +66,7 @@ export default function NewsletterSignup() {
                             <ul className="newsletter-signup__features">
                                 {features.map((feature, index) => (
                                     <li key={index}>
-                                        <img src={checkIcon} alt="" role="presentation" />
+                                        <img src={checkIcon} alt="" role="presentation"/>
                                         <p>{feature}</p>
                                     </li>
                                 ))}
@@ -63,8 +74,8 @@ export default function NewsletterSignup() {
                         </NewsletterSignupForm>
 
                         <picture className="newsletter-signup__image" aria-hidden={true}>
-                            <source srcSet={decoImageDesktop} media={"(min-width: 75rem)"} />
-                            <img src={decoImageMobile} alt="" />
+                            <source srcSet={decoImageDesktop} media={"(min-width: 60rem)"}/>
+                            <img src={decoImageMobile} alt=""/>
                         </picture>
                     </>
                 )}

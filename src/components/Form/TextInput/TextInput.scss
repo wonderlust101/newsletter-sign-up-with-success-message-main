@@ -1,0 +1,53 @@
+@use  '../../../assets/styles/abstract' as a;
+
+.text-input {
+  display: grid;
+  gap: 0.5rem;
+
+  &__field {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 1px solid #19182B40;
+    border-radius: 0.5rem;
+    outline: none !important;
+
+    &::placeholder {
+      opacity: 0.4;
+    }
+
+    &:focus {
+      border: 1px solid #242742;
+    }
+
+    &--error,
+    &--error:focus {
+      border: 1px solid #FF6155;
+    }
+  }
+  
+  &__labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: unset;
+  }
+  
+  &__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 150%;
+  }
+
+  &__error-icon {
+    display: none;
+    position: absolute;
+    right: 1.25rem;
+    bottom: 2.90rem;
+  }
+
+  &__status {
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #FF6155;
+  }
+}

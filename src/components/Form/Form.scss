@@ -1,0 +1,10 @@
+.form {
+  display: grid;
+  gap: 1.5rem;
+  
+  &__fieldset {
+    display: grid;
+    width: 100%;
+    border: none;
+  }
+}

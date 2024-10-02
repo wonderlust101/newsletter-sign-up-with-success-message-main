@@ -18,6 +18,7 @@ export default function NewsletterSignupSuccess({onClick, email}: newsletterSign
 
                 <div className="newsletter-signup-success__text">
                     <h1>Thank you for subscribing!</h1>
+                    
                     <p>A confirmation email has been sent to 
                         <span className="newsletter-signup-success__email"> {email}</span>. 
                         Please open it and click the button inside to confirm your subscription

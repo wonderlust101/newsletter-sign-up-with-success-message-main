@@ -12,6 +12,5 @@ export default defineConfig({
             }
         }
     },
-    // TODO: Change to git repository
-    // base   : "//" 
+    base   : "/newsletter-sign-up-with-success-message-main/" 
 });

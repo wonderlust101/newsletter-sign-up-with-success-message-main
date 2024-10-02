@@ -1,0 +1,17 @@
+.newsletter-signup-form {
+  grid-area: 2/1;
+  display: grid;
+  gap: 2.5rem;
+  padding: 2.5rem 1.5rem;
+
+  @include breakpoint(medium) {
+    grid-area: 1/1;
+    align-content: center;
+    padding: 4rem;
+  }
+  
+  &__text {
+    display: grid;
+    gap: 1.5rem;
+  }
+}

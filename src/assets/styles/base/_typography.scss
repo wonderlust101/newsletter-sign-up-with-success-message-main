@@ -1,6 +1,19 @@
 @use '../abstract/index' as a;
 
 h1, h2, h3, h4,
-h5, h6, p {
+h5, h6, p, label, input, button, a {
+ font-family: 'Roboto', sans-serif;
+}
 
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+
+  @include a.breakpoint(medium) {
+    font-size: 3.5rem;
+  }
+}
+
+p {
+  line-height: 1.5;
 }
